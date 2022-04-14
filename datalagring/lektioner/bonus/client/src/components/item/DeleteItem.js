@@ -1,13 +1,13 @@
-import UserService from '../../utils/api/service/UserService'
+import ItemService from '../../utils/api/service/ItemService'
 import css from './Container.module.css'
 import { useState } from 'react'
 
-const DeleteUser = () => {
+const DeleteItem = () => {
     const [text, setText] = useState('')
     const [id, setId] = useState('')
 
-    const deleteUserById = () => {
-        UserService.deleteUserById(id)
+    const deleteItemById = () => {
+        ItemService.deleteItemById(id)
             .then(res => {
                 setText(res.data.message)
             })
@@ -18,7 +18,7 @@ const DeleteUser = () => {
 
     return (
         <article className={ css.container }>
-            <h1>DeleteUser</h1>
+            <h1>DeleteItem</h1>
 
             Id: <input type='string'
                        id='id'
@@ -27,8 +27,8 @@ const DeleteUser = () => {
             <br/>
 
             <button onClick={ function () {
-                deleteUserById()
-            } }>Delete user
+                deleteItemById()
+            } }>Delete item
             </button>
             <button onClick={ function () {
                 setText('')
@@ -39,4 +39,4 @@ const DeleteUser = () => {
     )
 }
 
-export default DeleteUser
+export default DeleteItem

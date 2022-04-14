@@ -1,27 +1,27 @@
 import { useState } from 'react'
-import UserService from '../../utils/api/service/UserService'
+import ItemService from '../../utils/api/service/ItemService'
 import css from './Container.module.css'
 import CardList from './cards/CardList'
 
-const UpdateUser = () => {
-    const [user, setUser] = useState([])
+const UpdateItem = () => {
+    const [item, setItem] = useState([])
     const [id, setId] = useState('')
     const [name, setName] = useState('Adam')
     const [age, setAge] = useState(29)
     const [gender, setGender] = useState('Male')
 
-    const updateUser = () => {
+    const updateItem = () => {
         const payload = {
             'name': name,
             'age': age,
             'gender': gender
         }
-        UserService.updateUserById(id, payload)
+        ItemService.updateItemById(id, payload)
             .then(response => {
                 const dataArray = []
                 dataArray.push(response.data)
                 console.log(dataArray)
-                setUser(dataArray)
+                setItem(dataArray)
             })
             .catch(error => {
                 console.log(error)
@@ -29,7 +29,7 @@ const UpdateUser = () => {
     }
     return (
         <article className={ css.container }>
-            <h1>Update User</h1>
+            <h1>Update Item</h1>
 
             Id: <input type='string'
                        id='id'
@@ -56,18 +56,18 @@ const UpdateUser = () => {
             <br/>
 
             <button onClick={ function () {
-                updateUser()
-            } }>Update user
+                updateItem()
+            } }>Update item
             </button>
             <button onClick={ function () {
-                setUser([])
+                setItem([])
             } }>clear
             </button>
-            { user.length > 0 && user[0].message
-                ? <p>{ user[0].message }</p>
-                : <CardList users={ user }/> }
+            { item.length > 0 && item[0].message
+                ? <p>{ item[0].message }</p>
+                : <CardList items={ item }/> }
         </article>
     )
 }
 
-export default UpdateUser
+export default UpdateItem

@@ -1,19 +1,19 @@
 import { useState } from 'react'
-import UserService from '../../utils/api/service/UserService'
+import ItemService from '../../utils/api/service/ItemService'
 import css from './Container.module.css'
 import CardList from './cards/CardList'
 
-const GetUserById = () => {
-    const [oneUser, setOneUser] = useState([])
+const GetItemById = () => {
+    const [oneItem, setOneItem] = useState([])
     const [id, setId] = useState('')
 
-    const getUserById = () => {
-        UserService.getById(id)
+    const getItemById = () => {
+        ItemService.getById(id)
             .then(response => {
                 const dataArray = []
                 dataArray.push(response.data)
                 console.log(dataArray)
-                setOneUser(dataArray)
+                setOneItem(dataArray)
             })
             .catch(err => {
                 console.log(err)
@@ -22,22 +22,22 @@ const GetUserById = () => {
 
     return (
         <article className={ css.container }>
-            <h1>Get user by Id</h1>
+            <h1>Get item by Id</h1>
             Id: <input type='text'
                        id='id'
                        value={ id }
                        onChange={ event => setId(event.target.value) }/>
 
-            <button onClick={ getUserById }>getUser</button>
+            <button onClick={ getItemById }>getItem</button>
 
-            <button onClick={ () => setOneUser([]) }>clear</button>
+            <button onClick={ () => setOneItem([]) }>clear</button>
             <br/>
 
-            { oneUser.length > 0 && oneUser[0].message
-                ? <p>{ oneUser[0].message }</p>
-                : <CardList users={ oneUser }/> }
+            { oneItem.length > 0 && oneItem[0].message
+                ? <p>{ oneItem[0].message }</p>
+                : <CardList items={ oneItem }/> }
         </article>
     )
 }
 
-export default GetUserById
+export default GetItemById

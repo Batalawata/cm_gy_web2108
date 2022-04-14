@@ -2,7 +2,7 @@ import express from 'express'
 import Configuration from './configuration/configurations.js'
 import Middlewares from './middlewares/Middlewares.js'
 import AliveRoute from './routes/AliveRoute.js'
-import UserRoutes from './routes/UserRoutes.js'
+import ItemRoute from './routes/ItemRoute.js'
 import Logger from './utils/Logger.js'
 
 // Express server
@@ -13,7 +13,7 @@ Middlewares.apply(app)
 
 // Routes
 AliveRoute.routes(app)
-UserRoutes.routes(app)
+ItemRoute.routes(app)
 
 // Error handling middleware
 Middlewares.wrongPathAndErrorHandling(app)

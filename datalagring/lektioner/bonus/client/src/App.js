@@ -1,10 +1,10 @@
 import css from './App.module.css'
 import Alive from './components/Alive'
-import CreateUser from './components/user/CreateUser'
-import GetAllUsers from './components/user/GetAllUsers'
-import GetUserById from './components/user/GetUserById'
-import UpdateUser from './components/user/UpdateUser'
-import DeleteUser from './components/user/DeleteUser'
+import CreateItem from './components/item/CreateItem'
+import GetAllItems from './components/item/GetAllItems'
+import GetItemById from './components/item/GetItemById'
+import UpdateItem from './components/item/UpdateItem'
+import DeleteItem from './components/item/DeleteItem'
 
 function App() {
     return (
@@ -14,13 +14,13 @@ function App() {
 
             <div className={css.container}>
                 <div>
-                    <GetAllUsers/>
-                    <GetUserById/>
+                    <GetAllItems/>
+                    <GetItemById/>
                 </div>
                 <div>
-                    <CreateUser/>
-                    <UpdateUser/>
-                    <DeleteUser/>
+                    <CreateItem/>
+                    <UpdateItem/>
+                    <DeleteItem/>
                 </div>
             </div>
 
