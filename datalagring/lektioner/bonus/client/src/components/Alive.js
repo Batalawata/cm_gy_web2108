@@ -17,6 +17,10 @@ const Alive = () => {
             })
     }
 
+    function now() {
+        return new Date()
+    }
+
     useEffect(() => {
         alive()
     }, [])

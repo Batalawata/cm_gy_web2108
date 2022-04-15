@@ -83,7 +83,7 @@ const getItemNames = (req, res) => {
 
     // Mongoose
     try {
-        ItemModel.find({}, 'name', (error, items) => {
+        ItemModel.find({}, 'titles', (error, items) => {
             if (error) {
                 Logger.error(error)
                 res.status(StatusCode.BAD_REQUEST).send({
@@ -185,13 +185,14 @@ const getItemById = (req, res) => {
 //     res.status(202).send(response)
 // }
 
-// Update item parameters
+// Update item parametersname
 const updateItemById = (req, res) => {
+    let options = { weekday: 'long', year: 'numeric', month: 'numeric', day: 'numeric' };
     try {
         const updatedItem = {
-            name: req.body.name,
-            age: req.body.age,
-            gender: req.body.gender
+            title: req.body.title,
+            deadline: req.body.deadline.toLocaleString('sv-SE', options),
+            isDone: req.body.isDone
         }
         Logger.debug(req.params.id)
         Logger.debug(updatedItem)

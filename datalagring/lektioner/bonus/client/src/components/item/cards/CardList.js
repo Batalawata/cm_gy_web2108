@@ -5,7 +5,7 @@ const CardList = ({ items }) => {
 
     return (
         <>
-            { items.length === 0 ? <><div>You have no todos!</div></> : <table className={ css.border }>
+            { items.length === 0 ? <></> : <table className={ css.border }>
                 <thead>
                 <tr className={ css.border }>
                     <th className={ `${ css.border }, ${ css.idWidth }` }>Id</th>

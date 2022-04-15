@@ -6,15 +6,15 @@ import CardList from './cards/CardList'
 const UpdateItem = () => {
     const [item, setItem] = useState([])
     const [id, setId] = useState('')
-    const [name, setName] = useState('Adam')
-    const [age, setAge] = useState(29)
-    const [gender, setGender] = useState('Male')
+    const [title, setTitle] = useState('new Title')
+    const [deadline, setDeadline] = useState('20.04.2022-12:00')
+    const [isDone, setIsDone] = useState(false)
 
     const updateItem = () => {
         const payload = {
-            'name': name,
-            'age': age,
-            'gender': gender
+            'title': title,
+            'deadline': deadline,
+            'isDone': isDone
         }
         ItemService.updateItemById(id, payload)
             .then(response => {
@@ -30,30 +30,30 @@ const UpdateItem = () => {
     return (
         <article className={ css.container }>
             <h1>Update Item</h1>
-
-            Id: <input type='string'
-                       id='id'
-                       value={ id }
-                       onChange={ event => setId(event.target.value) }/>
-            <br/>
-
-            Name: <input type='text'
-                         id='name'
-                         value={ name }
-                         onChange={ event => setName(event.target.value) }/>
-            <br/>
-
-            Age: <input type='number'
-                        id='age'
-                        value={ age }
-                        onChange={ event => setAge(Number(event.target.value)) }/>
-            <br/>
-
-            Gender: <input type='text'
-                           id='gender'
-                           value={ gender }
-                           onChange={ event => setGender(event.target.value) }/>
-            <br/>
+            <div className={css.singlediv}>
+            Id: <input type='text'
+                         id='id'
+                         value={ id }
+                         onChange={ event => setId(event.target.value) }/>
+            </div>
+            <div className={css.singlediv}>
+            Title: <input type='text'
+                         id='title'
+                         value={ title }
+                         onChange={ event => setTitle(event.target.value) }/>
+            </div>
+            <div className={css.singlediv}>
+            Deadline: <input type='datetime-local'
+                        id='deadline'
+                        value={ deadline }
+                        onChange={ event => setDeadline(Date(event.target.value)) }/>
+            <br/></div>
+            <div className={css.singlediv}>
+            isDone: <input type='checkbox'
+                           id='isDone'
+                           value={ isDone }
+                           onChange={ event => setIsDone(event.target.value) }/>
+            <br/></div>
 
             <button onClick={ function () {
                 updateItem()

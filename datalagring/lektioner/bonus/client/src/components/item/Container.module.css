@@ -1,8 +1,24 @@
 .container {
+    display: flex;
     margin: 1em;
     padding: 1em;
-    background-color: lightblue;
-    border-radius: 0.25em;
-    box-shadow: 0 0.25em 0.5em rgba(0, 0, 0, 0.25),
-                0 -0.25em -0.5em rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(20px);
+    border-radius: 0.5em;
+    box-shadow: 0 0.25em 0.5em rgba(0, 0, 0, 0.35);
+    flex-wrap: wrap;
+}
+
+.container > h1 {
+    width: 100%;
+}
+
+.singlediv {
+    display: flex;
+    flex: 1 1 0;
+    flex-direction: column;
+    margin-inline: .5em;
+    padding: .5em;
+}
+.singlediv > input {
+    margin-block: .5em;
 }

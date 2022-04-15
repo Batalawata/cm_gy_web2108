@@ -9,10 +9,9 @@ import DeleteItem from './components/item/DeleteItem'
 function App() {
     return (
         <>
-            <h1>App</h1>
-            <Alive/>
-
             <div className={css.container}>
+                <h1>MINA UPPGIFTER</h1>
+                <Alive/>
                 <div>
                     <GetAllItems/>
                     <GetItemById/>
