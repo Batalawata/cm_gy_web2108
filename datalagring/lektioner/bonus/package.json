@@ -1,0 +1,11 @@
+{
+  "name": "datalagring1",
+  "version": "1.0.0",
+  "description": "Inlämning för datalagring(MongoDB)",
+  "main": "-",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
