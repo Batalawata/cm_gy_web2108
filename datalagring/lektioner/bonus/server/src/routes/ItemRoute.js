@@ -8,7 +8,7 @@ const urls = {
 // Endpoint + Business Logic and CRUD Operations
 const routes = (app) => {
     // CREATE
-    app.post('/item/', ItemController.createItem)
+    app.post(item, ItemController.createItem)
     // READ
     app.get('/item/all', ItemController.getAllItems)
     // app.get('/items/name', ItemController.getItemNames)

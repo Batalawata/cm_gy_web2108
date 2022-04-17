@@ -14,11 +14,12 @@
 
 .singlediv {
     display: flex;
-    flex: 1 1 0;
+    flex: 1 1 25%;
     flex-direction: column;
     margin-inline: .5em;
     padding: .5em;
 }
 .singlediv > input {
     margin-block: .5em;
+    padding: 1em;
 }

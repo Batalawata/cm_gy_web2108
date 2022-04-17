@@ -1,10 +1,5 @@
 import css from './Table.module.css'
 
-// function swedify(input) {
-//     let options = { weekday: 'long', year: 'numeric', month: 'numeric', day: 'numeric' };
-//     return input.toLocaleString('se-SV', options)
-// }
-
 const Card = ({ item }) => {
     return (
         <tr className={ css.border }>
