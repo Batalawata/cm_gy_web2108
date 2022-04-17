@@ -6,8 +6,8 @@ import CardList from './cards/CardList'
 const UpdateItem = () => {
     const [item, setItem] = useState([])
     const [id, setId] = useState('')
-    const [title, setTitle] = useState('new Title')
-    const [deadline, setDeadline] = useState('20.04.2022-12:00')
+    const [title, setTitle] = useState('')
+    const [deadline, setDeadline] = useState('')
     const [isDone, setIsDone] = useState(false)
 
     const updateItem = () => {
@@ -39,18 +39,21 @@ const UpdateItem = () => {
             <div className={css.singlediv}>
             Title: <input type='text'
                          id='title'
+                         placeholder={ 'New title' }
                          value={ title }
                          onChange={ event => setTitle(event.target.value) }/>
             </div>
             <div className={css.singlediv}>
-            Deadline: <input type='datetime-local'
+            Deadline: <input type='datetime'
                         id='deadline'
+                        placeholder={ '2022-05-20' }
                         value={ deadline }
                         onChange={ event => setDeadline(Date(event.target.value)) }/>
             <br/></div>
             <div className={css.singlediv}>
             isDone: <input type='checkbox'
                            id='isDone'
+                           disabled={true}
                            value={ isDone }
                            onChange={ event => setIsDone(event.target.value) }/>
             <br/></div>

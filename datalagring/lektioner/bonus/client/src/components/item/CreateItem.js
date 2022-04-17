@@ -4,8 +4,8 @@ import css from './Container.module.css'
 
 const CreateItem = () => {
     const [text, setText] = useState('')
-    const [title, setTitle] = useState('Item title')
-    const [deadline, setDeadline] = useState('22-04-20 ')
+    const [title, setTitle] = useState('')
+    const [deadline, setDeadline] = useState('')
     const [isDone, setIsDone] = useState(false)
 
     const createItem = () =>{
@@ -22,7 +22,7 @@ const CreateItem = () => {
                 setIsDone(false)
             })
             .catch(error => {
-                console.error(error.messdeadline)
+                console.error(error.message)
             })
     }
 
@@ -32,13 +32,15 @@ const CreateItem = () => {
             <div className={css.singlediv}>
             Title: <input type='text'
                          id='title'
+                         placeholder={ 'New Item' }
                          value={ title }
                          onChange={ event => setTitle(event.target.value) }/>
             <br/>
             </div>
             <div className={css.singlediv}>
-            Deadline: <input type='datetime-local'
+            Deadline: <input type='datetime'
                         id='deadline'
+                        placeholder={ '2022-05-01' }
                         value={ deadline }
                         onChange={ event => setDeadline(event.target.value) }/>
             <br/>
@@ -46,6 +48,7 @@ const CreateItem = () => {
             <div className={css.singlediv}>
             IsDone: <input type='checkbox'
                            id='isDone'
+                           disabled={true}
                            value={ isDone }
                            onChange={ event => setIsDone(event.target.value) }/>
             <br/>
